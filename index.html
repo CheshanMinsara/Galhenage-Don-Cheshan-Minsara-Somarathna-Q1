@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Taskia - Task Management Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 20px 0;
+        }
+
+        .navbar-brand {
+            color: #5865F2;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .btn-try-free,
+        .btn-learn-more {
+            background-color: #5865F2;
+            border: 2px solid #5865f2;
+            color: white;
+            padding: 10px 25px;
+            margin-left: 100px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-try-free:hover,
+        .btn-learn-more:hover {
+            background-color: #4752C4;
+            border-color: #4752C4;
+            color: white;
+        }
+
+        .hero-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            color: #666;
+            font-size: 1.1rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .email-input {
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            width: 250px;
+        }
+
+        .email-input:focus {
+            border-color: #5865F2;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .features-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .feature-card-1 {
+            background-color: rgb(88, 101, 242);
+            color: white;
+        }
+
+        .feature-card-2 {
+            background-color: rgb(199, 227, 240);
+            color: black;
+        }
+
+        .feature-card-3 {
+            background-color: rgb(237, 223, 155);
+            color: black;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .why-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .why-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            margin-bottom: 30px;
+            margin-left: 100px;
+        }
+
+        .why-description {
+            color: #666;
+            font-size: 1.1rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            margin-left: 100px;
+        }
+
+        .app-mockup {
+            width: 100%;
+            height: 400px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .mockup-screen {
+            width: 90%;
+            height: 90%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .workflow-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .workflow-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-card {
+            background: #E8F4FD;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .chart-placeholder {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .stats-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .stats-circle {
+            width: 80px;
+            height: 80px;
+            background: #5865F2;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .trust-section {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
+        }
+
+        .trust-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            margin-bottom: 50px;
+        }
+
+        .user-avatar-l {
+            width: 240px;
+            margin-top: -60px;
+            height: 240px;
+
+        }
+
+        .user-avatar-r {
+            width: 340px;
+            height: 340px;
+            margin-bottom: -180px;
+        }
+
+        .big-number {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #5865F2;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .final-cta-section {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
+        }
+
+        .final-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+        }
+
+        .final-description {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .brands {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .brand-icon {
+            font-size: 2rem;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Taskia</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <a href="#" class="btn-try-free">Try free</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Task management<br>and lists Tool</h1>
+                    <p class="hero-description" style="color: gray;">We believe that designing products and services in
+                        close partnership
+                        with our clients is the only way to have a real impact on their business.</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <input type="email" class="email-input" placeholder="Name@company.com">
+                        <a href="#" class="btn-try-free">Try it free</a>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="Images/hero image.jpg" alt="1" style="width: 100%; height: 100%; margin-top: -40px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Services Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Featured Service that We Provide</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="feature-card feature-card-1"
+                        style="height:360px; max-width:240px; margin: 0 auto; padding: 30px 18px;">
+                        <div class="feature-icon mb-3">
+                            <img src="Images/Image 1.png" alt="feature-1" class="img-fluid">
+                        </div>
+                        <h3 class="feature-title mb-2" style="font-size:18px; line-height:21px;">Keep tasks in<br>one
+                            place</h3>
+                        <p style="font-size:15.5px; color:white">Save time, avoid losing work and
+                            information,
+                            delegate, and track tasks to stay on schedule.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="feature-card feature-card-2"
+                        style="height:360px; max-width:240px; margin: 0 auto; padding: 30px 18px; margin-top:40px;">
+                        <div class="feature-icon mb-3">
+                            <img src="Images/Image 2.png" alt="feature-2" class="img-fluid">
+                        </div>
+                        <h3 class="feature-title mb-2" style="font-size:18px; line-height:21px;">Track
+                            progress<br>easily</h3>
+                        <p style="font-size:15.5px; color:black">Save time, avoid losing work and
+                            information,
+                            delegate, and track tasks to stay on schedule.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="feature-card feature-card-3"
+                        style="height:360px; max-width:240px; margin: 0 auto; padding: 30px 18px;">
+                        <div class="feature-icon mb-3">
+                            <img src="Images/Image 3.png" alt="feature-3" class="img-fluid"
+                                style="width: 200px; height: 200px; padding-top: 40px;">
+                        </div>
+                        <h3 class="feature-title mb-2" style="font-size:18px; line-height:21px;">Collaborate<br>with
+                            team</h3>
+                        <p style="font-size:15.5px; color:black">Save time, avoid losing work and
+                            information,
+                            delegate, and track tasks to stay on schedule.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="why-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="app-mockup">
+                        <div class="mockup-screen">
+                            <img src="Images/Image 8.jpg" alt=""></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="why-title">Why do you need<br>task management</h2>
+                    <p class="why-description" style="color: gray;">Do you waste time organizing sticky notes, searching
+                        your email and apps
+                        for to-dos, and figuring out what to work on first? Then you need one solution to prioritize
+                        your tasks, manage your time, and meet your deadlines.</p>
+                    <a href="#" class="btn-learn-more">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="workflow-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="workflow-title">Seamless Team<br>Workflow & Efficient</h2>
+                    <p class="workflow-description"
+                        style="font-family: Georgia, 'Times New Roman', Times, serif; color: gray;">Do you waste time
+                        organizing sticky notes, searching your email <br>
+                        and
+                        apps
+                        for to-dos, and figuring out what to work on first? <br> Then you need one solution to
+                        prioritize
+                        your tasks, manage <br> your time, and meet your deadlines.</p>
+                    <div class="brands">
+                        <img src="Images/Image 6.jpg" alt="img-6">
+                        <img src="Images/Image 9.jpg" alt="img-9">
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-start">
+                    <img src="Images/Image 7.jpg" alt="img-7" style="margin-left: -40px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <h2 class="trust-title">Trust us and feel free to try our service</h2>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-3 col-md-4 d-flex justify-content-center mb-4 mb-lg-0">
+                    <img src="Images/Image 4.jpg" alt="img-4" class="user-avatar-l">
+                </div>
+                <div class="col-lg-6 col-md-4 text-center">
+                    <div class="big-number"
+                        style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                        100 000</div>
+                </div>
+                <div class="col-lg-3 col-md-4 d-flex justify-content-center mb-4 mb-lg-0">
+                    <img src="Images/Image 5.jpg" alt="img-5" class="user-avatar-r">
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br>
+    <hr>
+
+    <!-- Footer -->
+    <section class="final-cta-section">
+        <div class="container">
+            <h2 class="final-title">Get better work done</h2>
+            <p class="final-description">See why millions of people across 195<br>countries use Dash.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <input type="email" class="email-input" placeholder="Name@company.com">
+                <a href="#" class="btn-try-free">Try it free</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        // Show alert when any "Try free" button is clicked
+        document.querySelectorAll('.btn-try-free').forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                alert("thanks for try free");
+            });
+        });
+
+        document.querySelector('.btn-learn-more').addEventListener('click', function (e) {
+            e.preventDefault();
+            alert("Learn more tab opened");
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
