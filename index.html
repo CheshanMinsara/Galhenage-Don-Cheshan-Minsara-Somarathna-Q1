@@ -102,6 +102,12 @@
             flex-direction: column;
             justify-content: center;
             margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .feature-card-1 {
@@ -255,12 +261,27 @@
             margin-bottom: -180px;
         }
 
+        .user-avatar-l,
+        .user-avatar-r {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .user-avatar-l:hover,
+        .user-avatar-r:hover {
+            transform: scale(1.1);
+        }
+
         .big-number {
             font-size: 6rem;
             font-weight: bold;
             color: #5865F2;
             text-align: center;
             margin: 40px 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .big-number:hover {
+            transform: scale(1.4);
         }
 
         .final-cta-section {
@@ -306,7 +327,13 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <a href="#" class="btn-try-free">Try free</a>
+                <button class="btn-try-free" onclick="TryFree()">Try Free</button>
+
+                <script>
+                    function TryFree() {
+                        alert("Thanks for Trying Free");
+                    }
+                </script>
             </div>
         </div>
     </nav>
@@ -321,12 +348,19 @@
                         close partnership
                         with our clients is the only way to have a real impact on their business.</p>
                     <div class="d-flex gap-3 mb-4">
-                        <input type="email" class="email-input" placeholder="Name@company.com">
-                        <a href="#" class="btn-try-free">Try it free</a>
+                        <input type="email" class="email-input form-control" placeholder="Name@company.com" required>
+                        <button class="btn-try-free" onclick="TryFree()">Try Free</button>
+
+                <script>
+                    function TryFree() {
+                        alert("Thanks for Trying Free");
+                    }
+                </script>
                     </div>
                 </div>
                 <div class="col-6">
-                    <img src="Images/hero image.jpg" alt="1" style="width: 100%; height: 100%; margin-top: -40px;">
+                    <img src="Images/hero image.jpg" alt="Hero Img"
+                        style="width: 100%; height: 100%; margin-top: -40px;">
                 </div>
             </div>
         </div>
@@ -398,7 +432,13 @@
                         your email and apps
                         for to-dos, and figuring out what to work on first? Then you need one solution to prioritize
                         your tasks, manage your time, and meet your deadlines.</p>
-                    <a href="#" class="btn-learn-more">Learn more</a>
+                    <button class="btn-learn-more" onclick="LearnMore()">Learn More</button>
+                
+                <script>
+                    function LearnMore() {
+                        alert("Learn More tab Opened");
+                    }
+                </script>
                 </div>
             </div>
         </div>
@@ -459,27 +499,17 @@
             <p class="final-description">See why millions of people across 195<br>countries use Dash.</p>
             <div class="d-flex justify-content-center gap-3">
                 <input type="email" class="email-input" placeholder="Name@company.com">
-                <a href="#" class="btn-try-free">Try it free</a>
+                <button class="btn-try-free" onclick="TryFree()">Try Free</button>
+                
+                <script>
+                    function TryFree() {
+                        alert("Thanks for Trying Free");
+                    }
+                </script>
             </div>
         </div>
     </section>
-
-    <script>
-
-        // Show alert when any "Try free" button is clicked
-        document.querySelectorAll('.btn-try-free').forEach(function (btn) {
-            btn.addEventListener('click', function (e) {
-                e.preventDefault();
-                alert("Thanks for Try Free");
-            });
-        });
-
-        document.querySelector('.btn-learn-more').addEventListener('click', function (e) {
-            e.preventDefault();
-            alert("Learn More tab Opened");
-        });
-
-    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
